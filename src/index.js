@@ -6,17 +6,18 @@ import store from './store';
 import { Provider } from 'react-redux';
 import { history } from './his';
 import App from './components/App';
+import Login from './components/Login';
+import { BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render((
    <Provider store={store}>
-      <Router history={history}>
-      <Switch>
-         <Route exact  path="/" component={App}/>
-         <Route  path="/home" component={Home} />
-         <Route  path="/app" component={App} />
-      </Switch>
-        
-      </Router>
+      <BrowserRouter history={history}>
+         <Switch>
+            <Route exact path="*" component={App} />
+         </Switch>
+
+      </BrowserRouter>
+      
    </Provider>
 
 ), document.getElementById('root'));
