@@ -15,7 +15,6 @@ ReactDOM.render((
          <Switch>
             <Route exact path="*" component={App} />
          </Switch>
-
       </BrowserRouter>
       
    </Provider>

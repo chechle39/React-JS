@@ -4,10 +4,12 @@ import { APP_LOAD, REDIRECT } from '../constants/actionTypes';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from './Header';
-import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './Home';
 import Login from './Login';
 import { history } from '../his';
+import Profile from './Profile';
+import ProfileFavorites from './ProfileFavorites';
 
 const mapStateToProps = state => ({
     appLoaded: state.common.appLoaded,
@@ -27,8 +29,7 @@ class App extends Component {
             // this.context.router.replace(nextProps.redirectTo);
             // this.props.history.push(nextProps.redirectTo)
 
-            // history.push(nextProps.redirectTo)
-            this.props.history.push('/');
+             history.push(nextProps.redirectTo)
             this.props.onRedirect();
         }
     }
@@ -53,6 +54,10 @@ class App extends Component {
                     </div>
 
                     <Route exact path="/" component={Home} />
+                    <Route exact path="/home" component={Home} />
+
+                    <Route exact path="/:username" component={Profile} />
+                    <Route path="/:username/favorites" component={ProfileFavorites} />
 
                     <Route exact path="/login" component={Login} />
                 </BrowserRouter>
@@ -67,7 +72,9 @@ class App extends Component {
                 </div>
 
                 <Route exact path="/" component={Home} />
-
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/:username" component={Profile} />
+                <Route path="/:username/favorites" component={ProfileFavorites} />
                 <Route exact path="/login" component={Login} />
             </BrowserRouter>
         );

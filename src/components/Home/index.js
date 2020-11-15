@@ -36,7 +36,6 @@ class Home extends Component {
     render() {
         return (
             <div className="home-page">
-              <h1>cxxxxxxxxxxxxxxx</h1>
                 <Banner token={this.props.token} appName={this.props.appName} />
                 <MainView/>
             </div>

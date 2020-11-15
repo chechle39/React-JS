@@ -4,6 +4,7 @@ import ListPagination from './ListPagination';
 
 const ArticleList = props => {
   if (!props.articles) {
+    console.log(`xxxxx${props}`);
     return (
       <div className="article-preview">Loading...</div>
     );
